@@ -8,7 +8,7 @@ def run_collector():
     df = yf.download(STOCKS, period="1y", interval="1d")
 
     # Limpieza y validación de consistencia
-    data = df['Adj Close'].dropna(how='all')
+    data = df['Close'].dropna(how='all')
     data.index = pd.to_datetime(data.index)
 
     # Guardar en formato Parquet (Eficiencia máxima)
